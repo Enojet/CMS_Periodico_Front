@@ -6,8 +6,8 @@
                     <h3>Registro de Usuario</h3>
                 </div>
                 <div class="card-body">
-                    <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
-                        <!-- Username/Email field -->
+                    <form #registerForm="ngForm" (ngSubmit)="handleRegisterForm()">
+                        <!-- 1 USUARIO/EMAIL-->
                         <div class="mb-3">
                             <label for="username" class="form-label">Usuario/Email</label>
                             <input 
@@ -15,19 +15,19 @@
                                 class="form-control" 
                                 id="username" 
                                 name="username"
-                                [(ngModel)]="registerData.username"
+                                [(ngModel)]="userForm.username"
                                 required
                                 email>
                         </div>
 
-                        <!-- Role selection -->
+                        <!-- 2 ROL USUARIO -->
                         <div class="mb-3">
                             <label for="role" class="form-label">Rol</label>
                             <select 
                                 class="form-select" 
                                 id="role" 
                                 name="role"
-                                [(ngModel)]="registerData.role"
+                                [(ngModel)]="userForm.role"
                                 required>
                                 <option value="">Seleccione un rol</option>
                                 <option value="writer">Escritor</option>
@@ -35,7 +35,7 @@
                             </select>
                         </div>
 
-                        <!-- Password field -->
+                        <!-- 3 PASSWORD -->
                         <div class="mb-3">
                             <label for="password" class="form-label">Contraseña</label>
                             <input 
@@ -43,12 +43,12 @@
                                 class="form-control" 
                                 id="password" 
                                 name="password"
-                                [(ngModel)]="registerData.password"
+                                [(ngModel)]="userForm.password"
                                 required
                                 minlength="6">
                         </div>
 
-                        <!-- Submit button -->
+                        <!-- 4 Submit button -->
                         <div class="d-grid">
                             <button 
                                 type="submit" 
