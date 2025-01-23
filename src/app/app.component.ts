@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import{ HomepageComponent} from './home/components/homepage/homepage.component'
+
+
 
 @Component({
   selector: 'app-root',
@@ -11,4 +13,6 @@ import{ HomepageComponent} from './home/components/homepage/homepage.component'
 })
 export class AppComponent {
   title = 'CMS_Periodico';
+  
+  
 }

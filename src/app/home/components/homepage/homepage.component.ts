@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { HomepageService } from '../services/homepage.service';
 
 @Component({
   selector: 'app-homepage',
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
 })
-export class HomepageComponent {
+export class HomepageComponent implements OnInit{
+  articleService: HomepageService = inject(HomepageService)
+  publishedArticles: any = []
+  ngOnInit(): void {
+    this.articleService.publishedArticles().subscribe ((data:any)=>{
+      this.publishedArticles = data.articles.filter((article: any) => article.status === 'published');
+     
+    })
+  }
 
 }

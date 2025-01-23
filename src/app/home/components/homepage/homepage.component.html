@@ -28,7 +28,9 @@
     <main>
       <p>NOTICIAS</p>
       <section class="noticias-container">
-        
+        @for(article of publishedArticles; track $index){
+          <h2>{{article.title}}</h2>
+        }
         <div class="destacada-container">
           <h1>Titular de la noticia destacada</h1>
           <h3>Pequeno resumen de la noticia para captar al espectador</h3>
@@ -41,43 +43,7 @@
           
           <img src="https://ecohabitar.org/wp-content/uploads/2020/09/Actualidad.jpg" alt="Noticia 1" />
         </div>
-        <div class="noticia">
-          
-          <h2>Titular de la Noticia 2</h2>
-          
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOdLgxlFaaaeVU3vVASUDXwgo1wuRlFjaPng&s" alt="Noticia 2" />
-        </div>
-        <div class="noticia">
-          
-          <h2>Titular de la Noticia 2</h2>
-          
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOdLgxlFaaaeVU3vVASUDXwgo1wuRlFjaPng&s" alt="Noticia 2" />
-        </div>
-        <div class="noticia">
-          
-          <h2>Titular de la Noticia 2</h2>
-          
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOdLgxlFaaaeVU3vVASUDXwgo1wuRlFjaPng&s" alt="Noticia 2" />
-        </div>
-        <div class="noticia">
-          
-          <h2>Titular de la Noticia 2</h2>
-          
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOdLgxlFaaaeVU3vVASUDXwgo1wuRlFjaPng&s" alt="Noticia 2" />
-        </div>
-        <div class="noticia">
-          
-          <h2>Titular de la Noticia 2</h2>
-          
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOdLgxlFaaaeVU3vVASUDXwgo1wuRlFjaPng&s" alt="Noticia 2" />
-        </div>
-        <div class="noticia">
-          
-          <h2>Titular de la Noticia 2</h2>
-          
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOdLgxlFaaaeVU3vVASUDXwgo1wuRlFjaPng&s" alt="Noticia 2" />
-        </div>
-
+        
         
 
       </section>
