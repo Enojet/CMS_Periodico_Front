@@ -1,0 +1,21 @@
+{
+    "noticias": [
+      {
+        "id": 1,
+        "titular": "Título de la noticia",
+        "subtitulos": [
+          "Subtítulo 1",
+          "Subtítulo 2"
+        ],
+        "fecha": "2025-01-23",
+        "tipo": "Noticia",
+        "autor": "Nombre del autor",
+        "imagen": {
+          "url": "https://ejemplo.com/imagen.jpg",
+          "descripcion": "Descripción de la imagen"
+        },
+        "cuerpo": "Aquí va el texto principal de la noticia.",
+        "estado": "publicado"
+      }
+    ]
+  }
