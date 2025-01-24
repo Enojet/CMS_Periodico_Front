@@ -14,7 +14,7 @@ export const WRITER_ROUTES: Routes = [
         component: DraftListComponent
     },
     {
-        path: "draft-details",
+        path: "draft-details/:id",
         component: DraftDetailsComponent
     },
     {
