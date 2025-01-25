@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { WriterService } from '../../services/writer.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-draft-details',
@@ -8,5 +10,16 @@ import { Component } from '@angular/core';
   styleUrl: './draft-details.component.css'
 })
 export class DraftDetailsComponent {
-
+  private writerService: WriterService = inject(WriterService);
+  private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
+  public draft: any = {};
+  
+  ngOnInit(){
+      this.activatedRoute.params.subscribe( (params) => {
+        const id: string = params["id"]  
+        this.writerService.getArticleById(id).subscribe( (data: any) => {
+              this.draft = data;
+          } )
+      })
+  }
 }
