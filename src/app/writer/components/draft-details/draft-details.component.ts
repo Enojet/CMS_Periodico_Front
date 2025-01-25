@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { WriterService } from '../../services/writer.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-draft-details',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './draft-details.component.html',
   styleUrl: './draft-details.component.css'
 })

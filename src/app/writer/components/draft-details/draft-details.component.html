@@ -8,6 +8,6 @@
     <p><strong>Sección:</strong> {{ draft.section }}</p>
     <p><strong>Autor:</strong> {{ draft.author }}</p>
   </div>
-   <button>Editar borrador</button>
+   <button [routerLink]="['/writer/modify-article', draft.id]">Editar borrador</button>
    <button>Enviar a revisión</button>
  </div>

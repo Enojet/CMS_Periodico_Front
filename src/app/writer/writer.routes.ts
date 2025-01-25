@@ -18,7 +18,7 @@ export const WRITER_ROUTES: Routes = [
         component: DraftDetailsComponent
     },
     {
-        path: "modify-article",
+        path: "modify-article/:id",
         component: ModifyArticleComponent
     },
 ];
