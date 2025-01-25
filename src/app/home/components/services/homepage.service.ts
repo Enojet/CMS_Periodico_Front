@@ -5,8 +5,14 @@ import { inject, Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class HomepageService {
+
     http: HttpClient = inject(HttpClient)
+    
     publishedArticles(){
     return this.http.get('http://localhost:3000/articles')
+    }
+    getArticleById(id: string){
+      return this.http.get(`http://localhost:3000/articles/${id}`)
+
     }
 }
