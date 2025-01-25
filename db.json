@@ -1,31 +1,31 @@
 {
     "users": [
       {
-        "id": 1,
+        "id": "1",
         "username": "jose",
         "password": "1234",
         "role": "writer"
       },
       {
-        "id": 2,
+        "id": "2",
         "username": "marta",
         "password": "abcd",
         "role": "editor"
       },
       {
-        "id": 3,
+        "id": "3",
         "username": "luis",
         "password": "password123",
         "role": "writer"
       },
       {
-        "id": 4,
+        "id": "4",
         "username": "ana",
         "password": "ana1234",
         "role": "editor"
       },
       {
-        "id": 5,
+        "id": "5",
         "username": "pablo",
         "password": "pablo5678",
         "role": "writer"
@@ -155,3 +155,4 @@
 ]
  
 }
+
