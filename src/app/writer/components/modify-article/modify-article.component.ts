@@ -46,8 +46,6 @@ private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
         } )
     })
 }
-
-  
  
 // Método que maneja la selección del archivo
 onFileSelected(event: any): void {
