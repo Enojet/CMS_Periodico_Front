@@ -17,5 +17,15 @@ export class AuthService {
     return this.http.post("http://localhost:3000/register", userForm)
     
   }
-  constructor() { }
+
+  // Método enviar datos al backend para login
+  login(userLoginForm: any) {
+      // Realiza una solicitud HTTP POST al backend para logear al usuario
+    // Envía los datos del formulario 'userLoginForm' al endpoint '/login' del servidor
+    // OJO!!! PDTE REVISAR RUTA Y Nº PUERTO    
+    return this.http.post("http://localhost:3000/login", userLoginForm)
+  }
+
+  
+
 }

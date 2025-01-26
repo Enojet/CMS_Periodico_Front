@@ -1,0 +1,49 @@
+CHECKLIST lOGIN
+ARCHIVOS QUE TRABAJAREMOS
+
+
+
+DATOS A NECESITAR BACK:
+users.model.js
+    username/email
+    password
+
+1 CREAR FORMULARIO
+
+INTRUCCIONES
+1 Creamos carpeta login como modulo auth
+terminal->ng generate module auth/login
+
+
+2 FORMULARIO
+
+****login.component.html****
+2.1 Copiamos otro formulario de otro proyecto para reutilizarlo y adaptamos.
+Cambiamos metodo, adaptamos ngmodel,etc
+
+****login.component.ts****
+ 1 VALIDACION Y ENVIAR DATOS
+2.2 Traemos metodo de register y modificamos para login
+Cambiamos metodo, creamos lista publica para recoger, importamos FormsModule
+------------------------------------------------------------------------------
+3 CONECTAR CON BASE DE DATOS Y ENVIAR DATOS
+3.1 auth.service.ts configuramos Método enviar datos al backend para login
+3.2 Conectamos en appcomponent html app-login
+3.3 Declaramos en appcomponent ts importamos e inyectamos logincomponent 
+****login.component.ts****
+
+4 PERSISTENCIA(RECOGER TOKEN) LOCALSTORAGE
+login.component.ts en metodo para enviar datos creamos localstorage
+  // 2 LLAMAR SERVICIO REGISTRAR USUARIO
+  // Metodo login() de AuthService que envia los datos al backend
+  // Suscribir: escuchar al servidor y recibir la respuesta
+  this.authService.login(this.userLoginForm).subscribe({
+    next: (data: any) =>{
+      alert(data.message)
+      // 4 PERSISTENCIA(RECOGER TOKEN) LOCALSTORAGE
+      // localstorage: objeto del back con datos
+      // setItem= quiere decir que seleccionamos algo del objeto
+      // 
+      localStorage.setItem(`token`, data.token)
+    },
+    

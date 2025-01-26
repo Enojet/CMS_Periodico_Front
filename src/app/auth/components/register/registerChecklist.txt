@@ -75,8 +75,11 @@ handleRegisterForm() {
   constructor() { }
 
   4 ENVIAR DATOS AL BACKEND CON FORMULARIO CON SERVICIO
-  4.1 register.component.ts inyectamos AuthService(auth.service.ts) para poder utilizar el metodo register
 
+  4.1 register.component.ts inyectamos AuthService(auth.service.ts) para poder utilizar el metodo register
+  4.2 enviar datos con formData que es para enviar string e imagenes
+
+5 RECIBIR TOKEN
 
 
 
