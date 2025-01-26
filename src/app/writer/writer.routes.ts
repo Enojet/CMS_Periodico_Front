@@ -7,7 +7,7 @@ import { ModifyArticleComponent } from './components/modify-article/modify-artic
 export const WRITER_ROUTES: Routes = [
     {
         path: "create-article",
-        component: CreateArticleComponent
+        component: CreateArticleComponent,
     },
     {
         path: "draft-list",

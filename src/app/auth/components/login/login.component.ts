@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core'; // Importamos Component e inject para inyectar servicios
 import { FormsModule } from '@angular/forms'; // Importamos FormsModule
 import { AuthService } from '../../service/auth.service'; // Importamos el servicio de autenticacion
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -14,6 +14,7 @@ export class LoginComponent {
  // 2 LLAMAR SERVICIO REGISTRAR USUARIO
  // Inyectamos servicio AuthService
   private authService : AuthService = inject(AuthService)
+  private router: Router = inject(Router);
   
   public userLoginForm = {
     //Ponemos atributos que son string (vacios)
@@ -39,15 +40,28 @@ export class LoginComponent {
   // Suscribir: escuchar al servidor y recibir la respuesta
   this.authService.login(this.userLoginForm).subscribe({
     next: (data: any) =>{
-      alert(data.message)
       // 4 PERSISTENCIA(RECOGER TOKEN) LOCALSTORAGE
       // localstorage: objeto del back con datos
       // setItem= quiere decir que seleccionamos algo del objeto
-      // 
       localStorage.setItem(`token`, data.token)
+      // Guardar rol del usuario
+      localStorage.setItem('role', data.data.role);
+      // Guardar nombre de usuario
+      localStorage.setItem('username', data.data.username);
+
+      alert('Login exitoso');
+      // TODO: Añadir redirección según el rol del usuario
+      const userRole = data.data.role;
+      if (userRole === 'editor') {
+        this.router.navigate(['/editor']);
+      } else if (userRole === 'writer') {
+        this.router.navigate(['/writer']);
+      } else {
+        this.router.navigate(['/home']);
+      }
     },
     error: (error) =>{
-      alert('Error al registrar el usuario')
+      alert('Error al iniciar sesión')
       console.log(error)
     }
   })

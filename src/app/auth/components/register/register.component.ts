@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -15,6 +16,9 @@ export class RegisterComponent {
   // 3 ENVIAR DATOS BACK
   // 3.1 Variable FormData para enviar datos
   private userFormData: FormData =new FormData()
+
+  // Inyectamos Router para redireccionar al login después registro ok
+  private router = inject(Router);
 
   // Inyectamos el servicio AuthService de auth.service.ts
   private authService : AuthService = inject(AuthService)
@@ -49,7 +53,12 @@ export class RegisterComponent {
   // Suscribir: escuchar al servidor y recibir la respuesta
   this.authService.register(this.userForm).subscribe({
     next: (data: any) =>{
-      console.log(data)
+      // 1. Primero muestra una ventana emergente con este mensaje
+      alert('Usuario registrado correctamente. Redirigiendo al login...');
+      console.log(data);
+      setTimeout(() => {
+        this.router.navigate(['/auth/login']);
+      }, 1500); //2-> 1.5 segundos de delay
     },
     error: (error) =>{
       alert('Error al registrar el usuario')
