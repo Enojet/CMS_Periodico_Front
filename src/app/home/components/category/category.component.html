@@ -1,0 +1,33 @@
+<body>
+    <app-header></app-header>
+    <main>
+      <div class="category-container">
+        <p class="categoryTitle">{{sectionFromParams}}</p>
+
+      </div>
+
+      <section class="noticias-container">
+        <article class="noticiasgrid">
+          @for(article of publishedArticles; track $index) {
+            <div class="{{ 'noticia' }}">
+              <h2>{{article.title}}</h2>
+              <img src="{{article.image}}" alt="{{article.subtitle}}" />
+              <p>{{article.author}}</p>
+              <button class="button" [routerLink]="['/home/articleView/', article.id]">Leer articulo</button> 
+            
+            </div>
+          }
+        </article>
+
+
+      </section>
+    
+      
+      
+    </main>
+   
+
+  
+</body>
+<app-footer></app-footer>
+

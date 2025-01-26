@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Main Styles */
+main {
+    margin-top: 100px;
+    padding: 0px;
+}
+
+.category-container{
+    border-bottom: 4px solid #0073e6;
+    margin: 00px;
+    padding: 0px;
+    margin-bottom: 100px;
+    
+}
+
+.categoryTitle{
+    margin: 0px;
+    padding: 0px;
+    margin-left: 10vh;
+    font-size: 30px;
+}
+.article-container{
+    padding-top: 5vh;
+    padding: 10vh;
+}
+
+.noticias-container {
+    margin-left: 10vh;
+    margin-right: 10vh;
+    display: flex;
+   
+}
+.noticiasgrid{
+    display: flex;
+}
+
+
+
+
+/* noticia 1 */
+.noticia {
+   
+    background-color: #fff;
+    display: block;
+    justify-content: space-between;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    width: 100%;
+    text-align: left;
+    padding: 1%;
+    border-color: red;
+
+   
+}
+
+.noticia:hover {
+    transform: scale(1.05);
+}
+
+.noticia img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin: 0%;
+    border-bottom: 4px solid #0073e6;
+}
+
+.noticia h2 {
+    font-size: 1.5em;
+    margin: 0px 0;
+    color: #000000;
+}
+
+.noticia p {
+    font-size: 10px;
+    text-align: left;
+    color: #0073e6;
+    font-style: oblique;
+    margin-left: 0px;
+}
+
+.button{
+    
+        box-shadow: 0px 1px 0px 0px #f0f7fa;
+        background:linear-gradient(to bottom, #646ebf 5%, #02072b 100%);
+        background-color:#646ebf;
+        border-radius:6px;
+        border:1px solid #057fd0;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:15px;
+        font-weight:bold;
+        padding:6px 24px;
+        text-decoration:none;
+        text-shadow:0px -1px 0px #5b6178;
+    }
+    .button:hover {
+        background:linear-gradient(to bottom, #02072b 5%, #646ebf 100%);
+        background-color:#02072b;
+    }
+    .button:active {
+        position:relative;
+        top:1px;
+    }
+    

@@ -15,4 +15,7 @@ export class HomepageService {
       return this.http.get(`http://localhost:3000/articles/${id}`)
 
     }
+    getArticleBySection(section: string){
+      return this.http.get(`http://localhost:3000/articles/${section}`)
+    }
 }

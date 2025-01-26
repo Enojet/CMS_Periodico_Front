@@ -89,7 +89,7 @@
   "image": "https://imagenes.elpais.com/resizer/v2/TE6HK5DJZNHSHM6R7OIHJTUCWE.jpg?auth=153560d3b54eb8bf8da85e3075122a10d111559f14715567f71952f9805cf802&width=1960&height=1103&smart=true",
   "body": "Un equipo de paleontólogos ha encontrado una nueva especie de dinosaurio en el desierto de Atacama. La criatura, que vivió hace 75 millones de años, podría cambiar la forma en que entendemos la evolución de los dinosaurios en la región...",
   "author": "Juan Martínez",
-  "status": "revisable",
+  "status": "published",
   "editorid": "editor_005"
 },
 {
@@ -97,11 +97,11 @@
   "title": "La influencia de las redes sociales en la política moderna",
   "subtitle": "Las plataformas digitales han transformado la forma en que se lleva a cabo la política global.",
   "date": "2025-01-05",
-  "section": "Sociedad",
+  "section": "Politica",
   "image": "https://concepto.de/wp-content/uploads/2014/08/redes-sociales-1-e1551307320533.jpg",
   "body": "Las redes sociales juegan un papel cada vez más relevante en la política. Desde las elecciones hasta los movimientos sociales, estas plataformas permiten una comunicación directa con el electorado, pero también presentan desafíos en términos de desinformación...",
   "author": "María López",
-  "status": "draft",
+  "status": "published",
   "editorid": "editor_006"
 },
 {
@@ -125,7 +125,7 @@
   "image": "https://epaouydin3q.exactdn.com/wp-content/uploads/2024/03/Emotional-Intelligence.jpg?strip=all&lossy=1&fit=1024%2C585&ssl=1",
   "body": "Los líderes empresariales están comenzando a reconocer la importancia de la inteligencia emocional en el entorno laboral. Desarrollar habilidades como la empatía y el autocontrol puede mejorar la productividad y las relaciones interpersonales dentro de las organizaciones...",
   "author": "Felipe Díaz",
-  "status": "revisable",
+  "status": "published",
   "editorid": "editor_008"
 },
 {
