@@ -9,11 +9,11 @@
       <section class="noticias-container">
         <article class="noticiasgrid">
           @for(article of publishedArticles; track $index) {
-            <div class="{{ 'noticia' }}">
+            <div class="{{ 'noticia' }}" [routerLink]="['/home/articleView', article.id]">
               <h2>{{article.title}}</h2>
               <img src="{{article.image}}" alt="{{article.subtitle}}" />
               <p>{{article.author}}</p>
-              <button class="button" [routerLink]="['/home/articleView/', article.id]">Leer articulo</button> 
+               
             
             </div>
           }
