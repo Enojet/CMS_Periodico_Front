@@ -5,12 +5,14 @@ import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { SearchComponent } from '../search/search.component';
+import { SubscribeComponent } from '../subscribe/subscribe.component';
+
 
 
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [ RouterModule, HeaderComponent,FooterComponent, CommonModule, SearchComponent],
+  imports: [ RouterModule, HeaderComponent,FooterComponent, CommonModule, SearchComponent, SubscribeComponent],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
 })
@@ -19,22 +21,44 @@ export class HomepageComponent implements OnInit{
   articleService: HomepageService = inject(HomepageService)
 
   publishedArticles: any = []
+  highlightArticles:any = []
+  genericArticles: any = []
+
+  highlightLimit =2
+  genericLimit = 6
 
   ngOnInit(): void {
     this.articleService.publishedArticles().subscribe ((data:any)=>{
       this.publishedArticles = data.filter((article: any) => article.status === 'published');
-     
+
+      this.highlightArticles = data.filter((article:any)=> article.highlight === true && article.status === 'published').slice(0, this.highlightLimit);
+
+      this.genericArticles = data.filter((article:any)=> article.highlight === false && article.status === 'published').slice(0,this.genericLimit)
     })
   }
 
-  mostrarMensaje: boolean = false;
-  tooltipX: number = 0;
-  tooltipY: number = 0;
-  moverTooltip(event: MouseEvent) {
-    this.tooltipX = event.clientX + 10; 
-    this.tooltipY = event.clientY + 20
-  }
+loadMoreHighlight(){
+  const currentLength = this.highlightArticles.length;
+  const nextLimit = currentLength + 2;
 
+  const allHighlightArticles = this.publishedArticles.filter(
+    (article: any) => article.highlight === true && article.status === 'published'
+  );
+
+  this.highlightArticles = allHighlightArticles.slice(0, nextLimit);
+}
+  
+
+loadMoreGeneric() {
+  const currentLength = this.genericArticles.length;
+  const nextLimit = currentLength + 4;
+
+  const allGenericArticles = this.publishedArticles.filter(
+    (article: any) => article.highlight === false && article.status === 'published'
+  );
+
+  this.genericArticles = allGenericArticles.slice(0, nextLimit);
+}
   
 
 }

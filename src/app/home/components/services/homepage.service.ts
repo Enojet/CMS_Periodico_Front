@@ -18,4 +18,7 @@ export class HomepageService {
     getArticleBySection(section: string){
       return this.http.get(`http://localhost:3000/articles/${section}`)
     }
+    //addSubscriber(email:string){
+      //return this.http.post(`http://localhost:3000/subscribers/${email}`)
+    //}
 }
