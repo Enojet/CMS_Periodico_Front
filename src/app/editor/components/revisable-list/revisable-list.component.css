@@ -1,0 +1,16 @@
+/* Structure */
+body{
+    padding:2% 10% 0% 10%;
+}
+table {
+    width: 100%;
+      }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+.portada{
+    width:100px;
+}

@@ -1,1 +1,52 @@
-<p>modify-article works!</p>
+<form class="form" >
+    <h2>Formulario Reactivo</h2>
+    <!-- Campo para el nombre del producto -->
+    <div class="form-field">
+        <label>Titular</label>
+        <!-- Este campo está vinculado al FormControl 'productName' en el FormGroup -->
+        <!-- Se utiliza el 'formControlName' para conectar el input con el FormControl -->
+        <input placeholder="Nombre del producto" name="productName" formControlName="productName" />
+        
+        <!-- Validación de nombre del producto -->
+        <!-- Si el campo está vacío y el formulario fue enviado (isSubmitted es true), mostramos un mensaje de error -->
+        
+            <p class="form-field--text-danger">Debes rellenar este campo con el nombre del producto</p>
+        
+    </div>
+
+
+    <!-- Campo para la descripción del producto -->
+    <div class="form-field">
+        <label>Cuerpo del articulo</label>
+        <!-- Este es un campo de tipo 'textarea' para permitir ingresar texto largo, vinculado al FormControl 'description' -->
+        <!-- Al igual que los otros campos, se usa 'formControlName' para vincularlo al formulario reactivo -->
+        <textarea placeholder="Descripción del producto" name="description" formControlName="description"></textarea>
+        
+        <!-- Validación de descripción -->
+        <!-- Si la descripción está vacía y el formulario fue enviado, mostramos un mensaje de error -->
+        
+            <p class="form-field--text-danger">Escribe aquí el cuerpo de la noticia</p>
+        
+    </div>
+
+    <!-- Campo para la categoría del producto -->
+    <div class="form-field">
+        <label>Categoría</label>
+        <!-- Este es un campo de tipo 'select' para elegir la categoría del producto -->
+        <!-- Los valores posibles son 'electronics', 'clothing' y 'food' -->
+        <select formControlName="state">
+            <option value="draft">Borrador</option>
+            <option value="revision">Revision</option>
+            <option value="published">Publicado</option>
+        </select>
+        
+        <!-- Validación de categoría -->
+        <!-- Si no se ha seleccionado una categoría y el formulario fue enviado, mostramos un mensaje de error -->
+        
+            <p class="form-field--text-danger">Debes seleccionar una categoría</p>
+        
+    </div>
+
+    <!-- Botón para enviar el formulario -->
+    <button type="submit">Publicar artículo</button>
+</form>
