@@ -9,14 +9,14 @@ export class HomepageService {
     http: HttpClient = inject(HttpClient)
     
     publishedArticles(){
-    return this.http.get('http://localhost:3000/articles')
+    return this.http.get('http://localhost:3600/publishArticles')
     }
     getArticleById(id: string){
-      return this.http.get(`http://localhost:3000/articles/${id}`)
+      return this.http.get(`http://localhost:3600/publishArticles/${id}`)
 
     }
     getArticleBySection(section: string){
-      return this.http.get(`http://localhost:3000/articles/${section}`)
+      return this.http.get(`http://localhost:3600/publishArticles/${section}`)
     }
     //addSubscriber(email:string){
       //return this.http.post(`http://localhost:3000/subscribers/${email}`)

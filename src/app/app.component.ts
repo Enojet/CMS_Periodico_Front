@@ -1,13 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import{ HomepageComponent} from './home/components/homepage/homepage.component'
+
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomepageComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
