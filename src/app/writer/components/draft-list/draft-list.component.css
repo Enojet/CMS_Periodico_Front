@@ -58,7 +58,7 @@
     transform: translateY(-5px); /* Mueve el item hacia arriba */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
 }
-=======
+
 /* Reseteo de márgenes y paddings por defecto */
 * {
     margin: 0;
