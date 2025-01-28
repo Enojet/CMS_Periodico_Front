@@ -1,0 +1,9 @@
+<h2 class="title">Por favor, elige un editor al que asignar este artículo para revisión:</h2>
+<ul class="editor-grid">
+    @for(editor of editors; track $index){
+        <li class="editor-item">
+            <h3>{{editor.username}}</h3>
+            <button (click)="assignAndSendToEditor()">Asignar y enviar a revisión</button>
+        </li>
+    }
+</ul>

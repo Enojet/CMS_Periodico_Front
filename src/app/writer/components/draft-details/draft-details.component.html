@@ -1,13 +1,13 @@
 <div class="draft-container">
-    <h3 class="title">{{ draft.title }}</h3>
-    <h4 class="subtitle">{{ draft.subtitle }}</h4>
+    <h3 class="title">{{ article.title }}</h3>
+    <h4 class="subtitle">{{ article.subtitle }}</h4>
    <div class="content">
-    <img src= {{draft.image}}  />
-    <p><strong> {{ draft.date }} </strong></p>
-    <p>{{ draft.body }}</p>
-    <p><strong>Sección:</strong> {{ draft.section }}</p>
-    <p><strong>Autor:</strong> {{ draft.author }}</p>
+    <img src= {{article.image}}  />
+    <p><strong> {{ article.date }} </strong></p>
+    <p>{{ article.body }}</p>
+    <p><strong>Sección:</strong> {{ article.section }}</p>
+    <p><strong>Autor:</strong> {{ article.author }}</p>
   </div>
-   <button>Editar borrador</button>
-   <button>Enviar a revisión</button>
+   <button [routerLink]="['/writer/modify-article', article._id]">Editar borrador</button>
+   <button [routerLink]="['/writer/asign-editor', article._id]">Enviar a revisión</button>
  </div>

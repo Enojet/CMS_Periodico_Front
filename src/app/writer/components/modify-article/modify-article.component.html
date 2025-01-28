@@ -1,1 +1,53 @@
-<p>modify-article works!</p>
+<form class="form-container" [formGroup]="draftForm" (ngSubmit)="handleEditArticleForm()">
+    <h3>Formulario para modificar un borrador</h3>
+    
+    <div class="form-item">
+        <label>Título</label>
+        <input type="text" formControlName="title">
+    </div>
+    
+    <div class="form-item">
+        <label>Subtítulo</label>
+        <input type="text" formControlName="subtitle">
+    </div>
+
+    <div class="form-item">
+        <label>Imagen</label>
+        <input type="file" (change)="onFileSelected($event)" accept="image/*">
+    </div>
+
+    <div class="form-item">
+        <label>Fecha</label>
+        <input type="date" formControlName="date">
+    </div>
+    
+    <div class="form-item">
+        <label>Cuerpo de la noticia</label>
+        <input class="body-container" type="text" formControlName="body">
+    </div>
+
+    <div class="form-item">
+        <label>Sección</label>
+        <select formControlName="section">
+            <option value="politics">Política</option>
+            <option value="economics">Economía</option>
+            <option value="science">Ciencia</option>
+            <option value="sports">Deportes</option>
+        </select>
+    </div>
+    
+    <div class="form-item">
+        <label>Autor</label>
+        <input type="text" formControlName="author">
+    </div>
+
+    <div class="form-item">
+        <label>Estado de la noticia</label>
+        <select formControlName="status">
+            <option value="draft">Borrador</option>
+        </select>
+    </div>
+
+    <input class="submit-btn" type="submit" value="Enviar">
+
+</form>
