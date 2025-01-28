@@ -19,8 +19,19 @@
                                 required
                                 email>
                         </div>
+                          <!-- 2 Nombre Completo -->
+                          <div class="mb-3">
+                            <label for="completeName" class="form-label">Nombre Completo</label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="completeName" 
+                                name="completeName"
+                                [(ngModel)]="userForm.completeName"
+                                required>
+                        </div>
 
-                        <!-- 2 ROL USUARIO -->
+                        <!-- 3 ROL USUARIO -->
                         <div class="mb-3">
                             <label for="role" class="form-label">Rol</label>
                             <select 
@@ -35,7 +46,7 @@
                             </select>
                         </div>
 
-                        <!-- 3 PASSWORD -->
+                        <!-- 4 PASSWORD -->
                         <div class="mb-3">
                             <label for="password" class="form-label">Contraseña</label>
                             <input 

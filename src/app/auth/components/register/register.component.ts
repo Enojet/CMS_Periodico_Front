@@ -29,6 +29,7 @@ export class RegisterComponent {
   public userForm = {
     //Ponemos atributos que son string (vacios)
     username: '',
+    completeName: '', // Añadimos el nuevo campo
     role: '',
     password: ''
   }
@@ -45,6 +46,7 @@ export class RegisterComponent {
 
     // 3 ENVIAR DATOS BACK userFormData
     this.userFormData.append('username', this.userForm.username)
+    this.userFormData.append('completeName', this.userForm.completeName) // Añadimos el nuevo campo
     this.userFormData.append('role', this.userForm.role)
     this.userFormData.append('password', this.userForm.password)
 

@@ -48,6 +48,8 @@ export class LoginComponent {
       localStorage.setItem('role', data.data.role);
       // Guardar nombre de usuario
       localStorage.setItem('username', data.data.username);
+      // Añadimos el ID del usuario
+      localStorage.setItem('_id', data.data._id); 
 
       alert('Login exitoso');
       // TODO: Añadir redirección según el rol del usuario
