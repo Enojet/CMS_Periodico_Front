@@ -1,1 +1,13 @@
-<p>draft-details works!</p>
+<div class="draft-container">
+    <h3 class="title">{{ article.title }}</h3>
+    <h4 class="subtitle">{{ article.subtitle }}</h4>
+   <div class="content">
+    <img src= {{article.image}}  />
+    <p><strong> {{ article.date }} </strong></p>
+    <p>{{ article.body }}</p>
+    <p><strong>Sección:</strong> {{ article.section }}</p>
+    <p><strong>Autor:</strong> {{ article.author }}</p>
+  </div>
+   <button [routerLink]="['/writer/modify-article', article._id]">Editar borrador</button>
+   <button [routerLink]="['/writer/asign-editor', article._id]">Enviar a revisión</button>
+ </div>

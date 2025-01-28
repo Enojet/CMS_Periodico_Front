@@ -1,1 +1,55 @@
-<p>homepage works!</p>
+<body>
+  <app-header></app-header>
+
+  <main>
+    <div class="title-container">
+      <p class="title">NOTICIAS</p>
+      <app-search></app-search>
+    </div>
+
+    <section class="noticias-container">
+      <div class="article-container">
+        <p class="highlightTitle">Noticias destacadas</p>
+
+        <article class="noticiasgridHighlight">
+          @for(article of highlightArticles; track $index) {
+          <div
+            class="{{ 'noticia' }}"
+            [routerLink]="['/home/articleView', article.id]"
+          >
+            <h2>{{ article.title }}</h2>
+            <img src="{{ article.image }}" alt="{{ article.subtitle }}" />
+            <p class="author">{{ article.author }}</p>
+          </div>
+          }
+          
+          
+        </article>
+        <button (click)="loadMoreHighlight()">Cargar mas noticias</button>
+      </div>
+      <div class="article-container">
+        <p class="highlightTitle">Otras noticias</p>
+        <article class="noticiasgridGeneric">
+          @for(article of genericArticles; track $index) {
+          <div
+            class="{{ 'noticia' }}"
+            [routerLink]="['/home/articleView', article.id]"
+          >
+            <h2>{{ article.title }}</h2>
+            <img src="{{ article.image }}" alt="{{ article.subtitle }}" />
+            <p class="author">{{ article.author }}</p>
+          </div>
+
+          }
+        </article>
+        
+      </div>
+      <button (click)="loadMoreGeneric()">Cargar mas noticias</button>
+    </section>
+
+    <section class="noticias-container"></section>
+
+    <app-subscribe></app-subscribe>
+  </main>
+  <app-footer></app-footer>
+</body>

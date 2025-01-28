@@ -1,1 +1,30 @@
-<p>article-view works!</p>
+<body>
+<app-header></app-header>
+    <main>
+      <div class="category-container">
+        <p class="categoryTitle"><span class="symbol">➤</span>{{article.section}}</p>
+
+      </div>
+      
+      <section class="article-container">
+        <h1>{{article.title}}</h1>
+        <h2>
+          <span class="symbol">➤</span>
+          {{article.subtitle}}
+        </h2>
+        <p class="date">{{article.date}}</p>
+        <p class="author">{{article.author}}</p>
+
+        <img class="mainImg" src="{{article.image}}" alt="">
+        <p class="articleBody">{{article.body}}</p>
+        
+         
+          
+        
+      </section>
+    </main>
+    <app-footer></app-footer>
+  </body>
+
+
+
