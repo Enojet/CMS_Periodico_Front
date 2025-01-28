@@ -10,15 +10,21 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
   styleUrl: './draft-details.component.css'
 })
 export class DraftDetailsComponent {
+  
+  // TO DO:
+  // usar el endpoint para mostrar el artículo por parámetros
+  // dependiendo del status -> los borradores tendrán un botón para editar y los que están en revisión o publicados no
+  
+  
   private writerService: WriterService = inject(WriterService);
   private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
-  public draft: any = {};
+  public article: any = {};
   
   ngOnInit(){
       this.activatedRoute.params.subscribe( (params) => {
         const id: string = params["id"]  
         this.writerService.getArticleById(id).subscribe( (data: any) => {
-              this.draft = data;
+              this.article = data;
           } )
       })
   }

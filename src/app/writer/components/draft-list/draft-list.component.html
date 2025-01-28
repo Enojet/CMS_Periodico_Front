@@ -1,11 +1,12 @@
 <h2 class="title">Lista de borradores disponibles</h2>
 <ul class="draft-grid">
-    @for(draft of draftList; track $index){
+    @for(article of articleList; track $index){
         <li class="draft-item">
-            <h3>{{draft.title}}</h3>
-            <p>{{draft.subtitle}}</p>
-            <h4>Autor: {{draft.author}}</h4>
-            <button [routerLink]="['/writer/draft-details', draft.id]">Ver más detalles</button>
+            <h3>{{article.title}}</h3>
+            <p>{{article.subtitle}}</p>
+            <h4>Autor: {{article.author}}</h4>
+            <button [routerLink]="['/writer/draft-details', article.id]">Ver más detalles</button>
+            <!-- cambiar por article._id ? -->
         </li>
     }
 </ul>

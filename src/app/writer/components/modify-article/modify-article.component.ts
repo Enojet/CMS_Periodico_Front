@@ -11,7 +11,11 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './modify-article.component.css'
 })
 export class ModifyArticleComponent {
-private writerService: WriterService = inject(WriterService);
+  // TO DO:
+  // no se puede cambiar ni el id del usuario redactor ni del nombre del autor
+  // el status tampoco debería cambiar porque eso se hace en asignar editor
+
+  private writerService: WriterService = inject(WriterService);
 private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
   private router: Router = inject(Router);
   private id: string = ""; 

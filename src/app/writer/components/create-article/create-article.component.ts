@@ -11,6 +11,12 @@ import { WriterService } from '../../services/writer.service';
   styleUrl: './create-article.component.css'
 })
 export class CreateArticleComponent {
+  // TO DO:
+  // crear botón de "crear artículo" en el draft-list que redidirija a este componente
+  // modificar la lógica para que se asigne el id del usuario que lo está creando
+  // que el campo author sea el fullname del usuario que lo está creando
+  
+  
   private writerService: WriterService = inject(WriterService);
   private router: Router = inject(Router);
   
