@@ -9,6 +9,6 @@ export class EditorService {
   http: HttpClient = inject(HttpClient);
 
   getAllArticles(){
-    return this.http.get("http://localhost:3000/articles")
+    return this.http.get("http://localhost:3600/articles/getArticlesByEditor/6798c73baa3532efadbfa6a8")
   }
 }
