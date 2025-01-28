@@ -9,7 +9,7 @@
                     <form #registerForm="ngForm" (ngSubmit)="handleRegisterForm()">
                         <!-- 1 USUARIO/EMAIL-->
                         <div class="mb-3">
-                            <label for="username" class="form-label">Usuario/Email</label>
+                            <label for="username" class="form-label">Usuario</label>
                             <input 
                                 type="email" 
                                 class="form-control" 
@@ -17,7 +17,7 @@
                                 name="username"
                                 [(ngModel)]="userForm.username"
                                 required
-                                email>
+                                >
                         </div>
                           <!-- 2 Nombre Completo -->
                           <div class="mb-3">

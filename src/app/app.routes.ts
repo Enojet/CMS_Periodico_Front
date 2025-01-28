@@ -2,14 +2,6 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
 
-    {        
-        // Ruta principal de la aplicación: si el usuario no pone ruta, se va a /auth
-        // El redirectTo indica la ruta a la que se redirigirá
-        // El pathMatch indica que se debe hacer match con la ruta vacía (no con una ruta que comience con /)
-        path: '',
-        redirectTo: 'auth',  
-        pathMatch: 'full'
-    },
     {
         
         path: "auth",
@@ -31,10 +23,4 @@ export const routes: Routes = [
         loadChildren: () => import("./home/home.routes").then(module => module.HOME_ROUTES)
     },
 
-
-    {
-        // ruta por defecto: si el usuario no pone ruta, se va a /auth
-        path: "**",
-        redirectTo: "auth"
-    },
 ];
