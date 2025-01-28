@@ -9,7 +9,7 @@ export class HomepageService {
     http: HttpClient = inject(HttpClient)
     
     publishedArticles(){
-    return this.http.get('http://localhost:3600/publishArticles')
+    return this.http.get('http://localhost:3600/articles/publishArticles')
     }
     getArticleById(id: string){
       return this.http.get(`http://localhost:3600/publishArticles/${id}`)
