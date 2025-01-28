@@ -1,9 +1,8 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-
     {
-        
+
         path: "auth",
         // cuando esté listo el guard se añade aquí para que solo los usuarios autorizados puedan acceder a estas rutas
         loadChildren: () => import("./auth/auth.routes").then(module => module.AUTH_ROUTES)
@@ -21,6 +20,6 @@ export const routes: Routes = [
     {
         path: "home",
         loadChildren: () => import("./home/home.routes").then(module => module.HOME_ROUTES)
-    },
+    }
 
 ];

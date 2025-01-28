@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import{ HomepageComponent} from './home/components/homepage/homepage.component'
+import{ HomepageComponent} from './home/components/homepage/homepage.component';
 import { RegisterComponent } from './auth/components/register/register.component';
 import { LoginComponent } from './auth/components/login/login.component';
+
 
 @Component({
   selector: 'app-root',
