@@ -1,3 +1,64 @@
+
+.draft-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Crea columnas de al menos 300px de ancho */
+    gap: 20px; /* Espacio entre los elementos */
+    padding: 20px;
+    list-style-type: none; /* Elimina los puntos de lista predeterminados */
+}
+
+/* Estilo de cada item dentro de la cuadrícula */
+.draft-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease; /* Efecto al pasar el ratón */
+}
+
+/* Estilo para los títulos y texto */
+.draft-item h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.draft-item p {
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+.draft-item h4 {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Estilo para el botón */
+.draft-item button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.draft-item button:hover {
+    background-color: #0056b3;
+}
+
+/* Efecto al pasar el ratón sobre los elementos */
+.draft-item:hover {
+    transform: translateY(-5px); /* Mueve el item hacia arriba */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+=======
 /* Reseteo de márgenes y paddings por defecto */
 * {
     margin: 0;
