@@ -11,5 +11,9 @@ export class WriterService {
   getAllArticles(){
     return this.http.get("http://localhost:3000/articles")
   }
+
+  getArticleById(id: string){ 
+    return this.http.get(`http://localhost:3000/articles/${id}`)
+    }
   
 }

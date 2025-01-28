@@ -1,1 +1,13 @@
-<p>draft-details works!</p>
+<div class="draft-container">
+    <h3 class="title">{{ draft.title }}</h3>
+    <h4 class="subtitle">{{ draft.subtitle }}</h4>
+   <div class="content">
+    <img src= {{draft.image}}  />
+    <p><strong> {{ draft.date }} </strong></p>
+    <p>{{ draft.body }}</p>
+    <p><strong>Sección:</strong> {{ draft.section }}</p>
+    <p><strong>Autor:</strong> {{ draft.author }}</p>
+  </div>
+   <button>Editar borrador</button>
+   <button>Enviar a revisión</button>
+ </div>
