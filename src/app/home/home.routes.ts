@@ -8,7 +8,7 @@ export const HOME_ROUTES: Routes = [
     {path:'homepage',
         component: HomepageComponent
     },
-    {path:'articleView/:id',
+    {path:'articleView/:_id',
         component: ArticleViewComponent
     },
     {
