@@ -7,10 +7,13 @@
         <h4>El Periodico</h4>
       </div>
         <div class="login">
-          
-          <a routerLink="['/auth']">
-            <i class="fa-solid fa-user"></i>
+           <i class="fa-solid fa-user"></i>
+          <a [routerLink]="['/auth/login']" routerLinkActive="router-link-active" >
+           Login
           </a>
+          <a [routerLink]="['/auth/register']" routerLinkActive="router-link-active" >
+            /Register
+           </a>
         </div>  
     </div>
 
