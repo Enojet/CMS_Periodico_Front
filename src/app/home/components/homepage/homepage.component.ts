@@ -21,37 +21,36 @@ export class HomepageComponent implements OnInit{
   articleService: HomepageService = inject(HomepageService)
 
   publishedArticles: any [] = []
-  highlightArticles:any []= []
+  highlighArticles:any []= []
   genericArticles: any []= []
 
-  highlightLimit =2
+  highlighLimit =2
   genericLimit = 6
 
   ngOnInit(): void {
     this.articleService.publishedArticles().subscribe ((data:any)=>{
       this.publishedArticles = data
-      console.log('Datos completos:', data);
      
-      this.highlightArticles = this.publishedArticles
-      .filter((article) => article.hightlight === true)
-      .slice(0, this.highlightLimit);
+     
+      this.highlighArticles = this.publishedArticles
+      .filter((article) => article.highlight === true)
+      .slice(0, this.highlighLimit);
 
-      this.genericArticles = data.filter((article:any)=> article.hightlight === false).slice(0,this.genericLimit)
+      this.genericArticles = data.filter((article:any)=> article.highlight === false).slice(0,this.genericLimit)
 
-      console.log('Artículos destacados:', this.highlightArticles);
-      console.log('Artículos genéricos:', this.genericArticles);
+      
     })
   }
 
 loadMoreHighlight(){
-  const currentLength = this.highlightArticles.length;
+  const currentLength = this.highlighArticles.length;
   const nextLimit = currentLength + 2;
 
   const allHighlightArticles = this.publishedArticles.filter(
     (article: any) => article.highlight === true && article.status === 'published'
   );
 
-  this.highlightArticles = allHighlightArticles.slice(0, nextLimit);
+  this.highlighArticles = allHighlightArticles.slice(0, nextLimit);
 }
   
 

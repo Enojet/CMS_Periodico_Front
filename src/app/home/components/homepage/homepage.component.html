@@ -14,7 +14,7 @@
         <p class="highlightTitle">Noticias destacadas</p>
 
         <article class="noticiasgridHighlight">
-          @for(article of highlightArticles; track $index) {
+          @for(article of highlighArticles; track $index) {
           <div
             class="{{ 'noticia' }}"
             [routerLink]="['/home/articleView', article._id]"
