@@ -4,15 +4,13 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { CommonModule } from '@angular/common';
-import { SearchComponent } from '../search/search.component';
-import { SubscribeComponent } from '../subscribe/subscribe.component';
 
 
 
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [ RouterModule, HeaderComponent,FooterComponent, CommonModule, SearchComponent, SubscribeComponent],
+  imports: [ RouterModule, HeaderComponent,FooterComponent, CommonModule],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
 })

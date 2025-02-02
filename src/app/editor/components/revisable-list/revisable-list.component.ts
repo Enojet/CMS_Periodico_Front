@@ -41,6 +41,7 @@ export class RevisableListComponent {
     this.draftList=data;
     console.log("Fecha:"+this.draftList[0].date);
     this.dataSource = new MatTableDataSource(this.draftList);
+    console.log(this.draftList)
       });
     
      
