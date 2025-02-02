@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core'; // Importamos Component e inject para inyectar servicios
 import { FormsModule } from '@angular/forms'; // Importamos FormsModule
 import { AuthService } from '../../service/auth.service'; // Importamos el servicio de autenticacion
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule], // Importamos FormsModule para trabajar formulario clásico
+  imports: [FormsModule, RouterLink], // Importamos FormsModule para trabajar formulario clásico
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -57,7 +57,7 @@ export class LoginComponent {
       if (userRole === 'editor') {
         this.router.navigate(['/editor']);
       } else if (userRole === 'writer') {
-        this.router.navigate(['/writer']);
+        this.router.navigate(['/writer/draft-list']);
       } else {
         this.router.navigate(['/home']);
       }

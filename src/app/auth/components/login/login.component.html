@@ -1,7 +1,7 @@
 <body>
   <!-- Botón Home -->
   <div class="home-button">
-    <a routerLink="/" class="btn-home">
+    <a [routerLink]="['/home/homepage']" class="btn-home">
       <i class="fas fa-home"></i> Volver al Inicio
     </a>
   </div>
@@ -51,7 +51,7 @@
       </button>
 
       <div class="signup_link">
-        ¿No tienes cuenta? <a routerLink="/auth/register">Registrate</a>
+        ¿No tienes cuenta? <a [routerLink]="['/auth/register']">Registrate</a>
       </div>
     </form>
   </div>
