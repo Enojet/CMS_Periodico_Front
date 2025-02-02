@@ -71,7 +71,8 @@ export class CreateArticleComponent {
       }
 
     // Se envía el formData al back
-    this.writerService.createNewArticle(formData).subscribe({
+
+      this.writerService.createNewArticle(formData).subscribe({
       next: (data: any) => {
         console.log(data);  
         alert("Borrador creador con éxito");
