@@ -1,98 +1,174 @@
-/* Reseteo de márgenes y paddings por defecto */
-* {
+span {
     margin: 0;
     padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
     box-sizing: border-box;
 }
 
-/* Estilo general para el body */
+/* Body */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
     margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  
 }
 
-/* Contenedor principal con márgenes a los lados */
-.container {
-    width: 100%;
-    padding: 0 20px; /* Márgenes a los lados */
-}
-
-/* Título de la lista */
-.title {
-    font-size: 2em;
-    color: #2c3e50;
-    margin-bottom: 20px;
+/* Header */
+header {
+    background-color: #000000;
+    padding: 5px 0;
     text-align: center;
-}
-
-/* Estilo para la cuadrícula */
-.editor-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Cuadrícula responsiva */
-    gap: 20px; /* Espacio entre los ítems */
-    padding: 20px;
-    max-width: 1200px; /* Limitamos el ancho máximo */
-    margin: 0 auto; /* Centrado horizontal */
-    list-style: none;
-}
-
-/* Estilo para cada ítem de la cuadrícula */
-.editor-item {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.editor-item:hover {
-    transform: translateY(-5px); /* Efecto de levantamiento en hover */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Estilo para el título de cada borrador */
-.editor-item h3 {
-    font-size: 1.5em;
-    color: #2c3e50;
-    margin-bottom: 10px;
-}
-
-/* Estilo para el subtítulo de cada borrador */
-.editor-item p {
-    font-size: 1.1em;
-    color: #7f8c8d;
-    margin-bottom: 10px;
-}
-
-/* Estilo para el autor */
-.editor-item h4 {
-    font-size: 1em;
-    color: #95a5a6;
-    margin-bottom: 15px;
-}
-
-/* Estilo para los botones */
-button {
-    padding: 10px 20px;
-    font-size: 1em;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    background-color: #3498db;
     color: white;
 }
 
-button:hover {
-    background-color: #2980b9;
+.firstBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
 }
 
-/* Estilos adicionales para el botón */
+.logo-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo-container img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.logo-container h4 {
+    font-size: 1.2em;
+    margin: 0;
+}
+
+/* Main */
+main {
+    flex: 1; 
+    margin: 40px 5vw;
+    padding: 20px;
+}
+
+/* Título */
+h2.title {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Botón */
+button {
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 14px;
+    height: 40px;
+    padding: 0 20px;
+    background: linear-gradient(92.88deg, rgb(69, 94, 181) 9.16%, rgb(86, 67, 204) 43.89%, rgb(103, 63, 215) 64.72%);
+    transition: all 0.5s ease 0s;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    box-shadow: rgb(80 63 205 / 50%) 0px 1px 40px;
+    transition: all 0.1s ease 0s;
+}
+
+/* Container de los editores */
+.editor-grid {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.editor-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 100%;
+    max-width: 25%;
+    transition: transform 0.3s;
+    text-align: left;
+}
+
+.editor-item:hover {
+    transform: scale(1.05);
+}
+
+.editor-item h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.editor-item p {
+    font-size: 0.8em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.editor-item h4 {
+    font-size: 0.8em;
+    color: #0073e6;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
 .editor-item button {
     display: inline-block;
+    padding: 10px 20px;
+    background-color: #0073e6;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.editor-item button:hover {
+    background-color: #005bb5;
+}
+
+/* Footer */
+footer {
+    background-color: #0073e6;
+    color: white;
     text-align: center;
-    margin-top: 10px;
+    padding: 20px 0;
+    margin-top: auto; 
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .editor-item {
+        max-width: 100%;
+    }
+
+    h2.title {
+        font-size: 1.6em;
+    }
+
+    header .logo-container h4 {
+        font-size: 1.5em;
+    }
 }
