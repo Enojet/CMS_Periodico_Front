@@ -1,86 +1,98 @@
 import { Component, inject } from '@angular/core';
 import { WriterService } from '../../services/writer.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FooterComponent } from '../../../home/components/footer/footer.component';
 
 @Component({
   selector: 'app-modify-article',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink, FooterComponent],
   templateUrl: './modify-article.component.html',
   styleUrl: './modify-article.component.css'
 })
 export class ModifyArticleComponent {
-  // TO DO:
-  // no se puede cambiar ni el id del usuario redactor ni del nombre del autor
-  // el status tampoco debería cambiar porque eso se hace en asignar editor
 
   private writerService: WriterService = inject(WriterService);
-private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
+  private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
   private router: Router = inject(Router);
-  private id: string = ""; 
-  private image!: File;
-  private articleFormData: FormData = new FormData();
 
   draftForm: FormGroup = new FormGroup({
     title: new FormControl("", Validators.required),
     subtitle: new FormControl("", Validators.required),
     image: new FormControl(""),
-    date: new FormControl("", Validators.required),
     body: new FormControl("", Validators.required),
     section: new FormControl("", Validators.required),
-    author: new FormControl("", Validators.required),
-    status: new FormControl("", Validators.required)
+    highlight: new FormControl(false, Validators.required),
   })
 
+  // Se muestran los datos existentes del artículo
   ngOnInit(){
     this.activatedRoute.params.subscribe( (params) => {
-      this.id = params["id"],
-      this.writerService.getArticleById(this.id).subscribe( (data: any) => {
+      const id: any = params["id"];
+      this.writerService.getArticleById(id).subscribe( (data: any) => {
         this.draftForm.setValue({
-          title: data.title,
-          subtitle: data.subtitle,
-          date: data.date,
-          image: data.image,
-          body: data.body,
-          section: data.section,
-          author: data.author,
-          status: data.status
+          title: data[0].title,
+          subtitle: data[0].subtitle,
+          image: data[0].image,
+          body: data[0].body,
+          section: data[0].section,
+          highlight: data[0].highlight
         })
         } )
     })
 }
  
 // Método que maneja la selección del archivo
-onFileSelected(event: any): void {
-  const input = event;
-  if (input?.files?.length) {
-    const file = input.files[0];  // Captura el archivo seleccionado
-    this.image = file
+onFileSelected(event: any) {
+  const file = event.target.files[0]; // Solo se toma el primer archivo
+  if (file) {
+    // Se guarda el archivo para ser enviado más tarde
+    this.draftForm.get('image')?.setValue(file);
   }
 }
 
   handleEditArticleForm(){
- 
     if(this.draftForm.valid) {
-      // this.articleFormData.append("title", this.draftForm.get("title")?.value);
-      // this.articleFormData.append("subtitle", this.draftForm.get("subtitle")?.value);
-      // this.articleFormData.append("image", this.image? this.image: this.draftForm.get("image")?.value);
-      // this.articleFormData.append("date", this.draftForm.get("date")?.value);
-      // this.articleFormData.append("body", this.draftForm.get("body")?.value);
-      // this.articleFormData.append("section", this.draftForm.get("section")?.value);
-      // this.articleFormData.append("author", this.draftForm.get("author")?.value);
-      // this.articleFormData.append("status", this.draftForm.get("status")?.value);
+      const formData = new FormData();
 
-      // cuando tenga los endpoints del back, descomento lo de arriba y sustituyo lo que se envía por articleFormData
-      this.writerService.modifyArticle(this.id, this.draftForm).subscribe({
-              next: (data: any) => {
-                  this.router.navigate(["/writer/draft-list"])
-              },
-              error: (error: any) => {
-                  console.log(error)
-              }
-          })
+      // Se rellena el formData con los datos del formulario
+      for (const key in this.draftForm.value) {
+        if (this.draftForm.value.hasOwnProperty(key)) {
+          const value = this.draftForm.value[key];
+
+        // Si el campo es la imagen, se añade al FormData
+        if (key === 'image') {
+          const imageFile = this.draftForm.get('image')?.value;
+          if (imageFile && imageFile instanceof File) {
+            formData.append(key, imageFile, imageFile.name);
+          } else if (imageFile === '' || !imageFile) {
+            // Si no se ha seleccionado una nueva imagen, no se añade el campo 'image' al formData
+          }
+        } else {
+          // Para otros campos, simplemente se añaden los valores
+          if (value || value === false) {
+            formData.append(key, value);
+          }
+        }
+      }
+    }
+
+      // Se envian los datos actualizados
+      this.activatedRoute.params.subscribe( (params) => {
+      const id: any = params["id"];
+      this.writerService.modifyArticleContent(id, formData).subscribe({
+        next: (data: any) => {
+          alert("Borrador modificado con éxito")
+          this.router.navigate([`/writer/draft-details/${id}`])
+        },
+        error: (error: any) => {
+          console.log(error);
+          alert("Se produjo un error")
+          }
+        })
+      })
+    
     }
   }
 }

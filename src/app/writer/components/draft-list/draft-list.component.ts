@@ -1,32 +1,55 @@
 import { Component, inject } from '@angular/core';
 import { WriterService } from '../../services/writer.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { FooterComponent } from '../../../home/components/footer/footer.component';
 
 
 @Component({
   selector: 'app-draft-list',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, FooterComponent],
   templateUrl: './draft-list.component.html',
   styleUrl: './draft-list.component.css'
 })
 export class DraftListComponent {
-  
-  // TO DO:
-  // coger el id del usuario loggeado
-  // mostrar los artículos creados por ese usuario
-  // agruparlos en el html por borradores, en revisión o publicados
-  // los borradores tendrán un botón para editar y los que están en revisión o publicados no
 
   private writerService: WriterService = inject(WriterService);
   public articleList: any = [];
+  public drafts = [];
+  public revisables = [];
+  public published = [];
   private authorId: any = localStorage.getItem("_id");
-
+  private router: Router = inject(Router);
   
   ngOnInit(){
-    this.writerService.getArticlesByAuthorId(this.authorId).subscribe((data: any)=>{
-        //this.articleList = data.filter((data: any) => data.status === 'draft');
-        this.articleList = data
-    })
+    this.writerService.getArticlesByAuthorId(this.authorId).subscribe({
+      next: (data: any) => {
+        this.articleList = data.sort((a: any, b: any) => {
+          // Se ordenan los artículos según reciben modificaciones
+          return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
+        });
+      },
+      error: (error: any) => {
+          console.log(error);
+          alert("Se produjo un error")
+      }
+  })
   }
+
+  // Función para que el estado de las noticias se muestre en español
+  getStatusInSpanish(status: string): string {
+    switch (status) {
+      case 'draft': return 'Borrador';
+      case 'revisable': return 'En revisión';
+      case 'publish': return 'Publicado';
+      default: return 'Desconocido'
+    }
+  }
+
+  // Enlace para cerrar sesión desde el panel de redactor y volver a la homepage
+  logOutAndRedirect(){
+    localStorage.clear();
+    this.router.navigate(["/home/homepage"])
+  }
+
 }
