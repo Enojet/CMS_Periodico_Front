@@ -9,7 +9,7 @@
             <h3>{{article.title}}</h3>
             <p>{{article.subtitle}}</p>
             <h4>Autor: {{article.author}}</h4>
-            <button [routerLink]="['/writer/draft-details', article.id]">Ver más detalles</button>
+            <button [routerLink]="['/writer/draft-details', article._id]">Ver más detalles</button>
             <!-- cambiar por article._id ? -->
         </li>
     }

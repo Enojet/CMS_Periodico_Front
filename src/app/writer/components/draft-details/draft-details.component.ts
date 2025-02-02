@@ -24,7 +24,9 @@ export class DraftDetailsComponent {
       this.activatedRoute.params.subscribe( (params) => {
         const id: string = params["id"]  
         this.writerService.getArticleById(id).subscribe( (data: any) => {
-              this.article = data;
+          
+              this.article = data[0];
+             
           } )
       })
   }

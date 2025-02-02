@@ -51,6 +51,8 @@ onFileSelected(event: Event): void {
                   console.log(error)
               }
           })
+      }else{
+        alert("No se ha podido crear el articulo");
       }
   }
 }

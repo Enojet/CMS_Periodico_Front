@@ -40,6 +40,8 @@ export class AsignEditorComponent {
   // 3. hacer un alert y redirigir a lista de borradores
 
   assignAndSendToEditor(){
+    
+    this.editorId="679bd5ff00d43d98c37e2c2c";
     this.writerService.assignArticleEditor(this.id, this.editorId).subscribe((params: any) => {
       const articleId = params["id"]; // guardo el id del artículo
       

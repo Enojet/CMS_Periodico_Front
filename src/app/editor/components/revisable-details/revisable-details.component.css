@@ -1,0 +1,76 @@
+/* Asegurar que toda la pantalla tenga un fondo suave */
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Centra verticalmente */
+    background-color: #f4f4f4; /* Color de fondo suave */
+    margin: 0;
+}
+
+/* Contenedor principal del formulario */
+.draft-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 70vw; 
+    max-width: 90%; /* Evita que se desborde en pantallas pequeñas */
+}
+
+/* Formulario */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaciado entre los elementos */
+}
+
+/* Etiquetas */
+p {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Input y textarea */
+input, textarea, select {
+    width: -webkit-fill-available;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Estilos específicos para textarea */
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Botones */
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Imagen */
+img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Input tipo file */
+input[type="file"] {
+    border: none;
+    padding: 5px;
+}
