@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { writerGuard } from './writer/guard/writer.guard';
 import { NotFoundComponent } from './notfound/not-found/not-found.component';
+import { editorGuard } from './editor/guard/editor.guard';
 
 export const routes: Routes = [
     {
@@ -10,7 +11,7 @@ export const routes: Routes = [
     },
     {
         path: "editor",
-        // cuando esté listo el guard se añade aquí para que solo los usuarios autorizados puedan acceder a estas rutas
+        canActivate: [editorGuard],
         loadChildren: () => import("./editor/editor.routes").then(module => module.EDITOR_ROUTES)
     },
     {
