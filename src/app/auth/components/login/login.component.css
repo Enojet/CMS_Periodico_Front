@@ -1,117 +1,294 @@
+/* 1. Reset Universal */
+* {
+    margin: 0;      /* Elimina márgenes por defecto */
+    padding: 0;     /* Elimina rellenos por defecto */
+    box-sizing: border-box;  /* Incluye padding en el ancho total */
+    font-family: "Poppins", sans-serif;  /* Fuente principal */
+}
+
+/* 2. Contenedor Angular */
 :host {
-    display: block;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
-    padding: 20px;
+    display: block;  /* Elemento tipo bloque */
+    min-height: 100vh;  /* Altura mínima pantalla completa */
+    background: linear-gradient(120deg, #0963eb, #9db7e7);  /* Degradado de fondo */
+    padding: 20px;  /* Espacio interior */
 }
 
-.container {
-    margin-top: 2rem !important;
+
+/* 3. Botón Home */
+.home-button {
+  position: absolute;
+  /* Posicionamiento fijo en la pantalla */
+  top: 20px;
+  /* Distancia desde arriba */
+  left: 20px;
+  /* Distancia desde izquierda */
+  z-index: 1;
+  /* Capa de apilamiento */
 }
 
-.card {
-    background: white;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+/* 4. Estilos Botón Home */
+.btn-home {
+  background-color: #0963eb;
+  /* Color de fondo */
+  color: white;
+  /* Color texto */
+  border: none;
+  /* Sin borde */
+  padding: 8px 15px;
+  /* Espacio interior */
+  border-radius: 5px;
+  /* Bordes redondeados */
+  cursor: pointer;
+  /* Cursor tipo mano */
+  font-size: 17px;
+  /* Tamaño texto */
+  transition: background-color 0.3s ease;
+  /* Animación hover */
 }
 
-.card:hover {
-    transform: translateY(-5px);
+.btn-home i {
+  margin-right: 5px;
+  /* Espacio entre icono y texto */
 }
 
-.card-header {
-    background: #2c3e50;
-    color: white;
-    border-radius: 15px 15px 0 0 !important;
-    padding: 1.5rem;
-    border: none;
+
+/* 5. Contenedor Formulario */
+.center {
+    position: absolute;  /* Centrado absoluto */
+    top: 50%;  /* Mitad vertical */
+    left: 50%;  /* Mitad horizontal */
+    transform: translate(-50%, -50%);  /* Ajuste centrado */
+    width: 400px;  /* Ancho fijo */
+    background-color: white;  /* Fondo blanco */
+    border-radius: 10px;  /* Bordes redondeados */
 }
 
-.card-header h3 {
-    margin: 0;
-    font-weight: 600;
-    font-size: 1.5rem;
+.center h1 {
+    text-align: center;  /* Texto centrado */
+    padding: 20px 0;  /* Espacio vertical */
+    border-bottom: 1px solid silver;  /* Línea separadora */
 }
 
-.card-body {
-    padding: 2rem;
-    background: white;
-    border-radius: 0 0 15px 15px;
+.center form {
+    padding: 0 40px;  /* Espacio horizontal */
+    box-sizing: border-box;  /* Incluye padding en ancho */
 }
 
-.form-label {
-    color: #34495e;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
+/* 6. Campos Formulario */
+.txt_field {
+    position: relative;  /* Para posicionar elementos hijos */
+    border-bottom: 2px solid #adadad;  /* Línea inferior */
+    margin: 30px 0;  /* Espacio vertical */
 }
 
-.form-control, .form-select {
-    border: 2px solid #e9ecef;
-    border-radius: 8px;
-    padding: 0.75rem;
-    transition: all 0.3s ease;
+.txt_field input {
+    width: 100%;  /* Ancho completo */
+    padding: 0 5px;  /* Espacio horizontal */
+    height: 40px;  /* Altura fija */
+    font-size: 16px;  /* Tamaño texto */
+    border: none;  /* Sin borde */
+    background: none;  /* Sin fondo */
+    outline: none;  /* Sin contorno al focus */
 }
 
-.form-control:focus, .form-select:focus {
-    border-color: #3498db;
-    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+.txt_field label {
+    position: absolute;  /* Posicionamiento flotante */
+    top: 50%;  /* Mitad vertical */
+    left: 5px;  /* Margen izquierdo */
+    color: #adadad;  /* Color texto */
+    transform: translateY(-50%);  /* Ajuste vertical */
+    font-size: 16px;  /* Tamaño texto */
+    pointer-events: none;  /* No intercepta eventos */
+    transition: .5s;  /* Animación */
 }
 
-.btn-primary {
-    background: #3498db;
-    border: none;
-    padding: 0.75rem;
-    font-weight: 600;
-    border-radius: 8px;
-    transition: all 0.3s ease;
+/* 7. Efectos Campos */
+.txt_field span::before {
+    content: '';  /* Elemento vacío */
+    position: absolute;  /* Posicionamiento absoluto */
+    top: 40px;  /* Posición vertical */
+    left: 0;  /* Desde borde izquierdo */
+    width: 0%;  /* Ancho inicial */
+    height: 2px;  /* Grosor línea */
+    background: #2691d9;  /* Color línea */
+    transition: .5s;  /* Animación */
 }
 
-.btn-primary:hover:not(:disabled) {
-    background: #2980b9;
-    transform: translateY(-2px);
+.txt_field input:focus ~ label,
+.txt_field input:valid ~ label {
+    top: -5px;  /* Posición elevada */
+    color: #2691d9;  /* Color activo */
 }
 
-.btn-primary:disabled {
-    background: #bdc3c7;
+.txt_field input:focus ~ span::before,
+.txt_field input:valid ~ span::before {
+    width: 100%;  /* Ancho completo al activar */
+}
+
+/* 8. Texto Ayuda */
+.password-help {
+    color: #666;  /* Color texto */
+    font-size: 12px;  /* Tamaño texto */
+    position: absolute;  /* Posicionamiento absoluto */
+    bottom: -15px;  /* Distancia inferior */
+    left: 5px;  /* Margen izquierdo */
+}
+
+/* 9. Botón Login */
+.button {
+    width: 100%;
+    /* Ancho completo */
+    height: 50px;
+    /* Altura fija */
+    border: 1px solid;
+    /* Borde fino */
+    background: #2691d9;
+    /* Color fondo */
+    border-radius: 25px;
+    /* Bordes redondeados */
+    font-size: 18px;
+    /* Tamaño texto */
+    color: #e9f4fb;
+    /* Color texto */
+    font-weight: 700;
+    /* Grosor texto */
+    cursor: pointer;
+    /* Cursor tipo mano */
+    outline: none;
+    /* Sin contorno */
+    margin: 25px 0;
+    /* Espacio vertical */
+}
+
+.button:disabled {
+    background: #cccccc;
+    /* Color deshabilitado */
     cursor: not-allowed;
+    /* Cursor bloqueado */
+    opacity: 0.7;
+    /* Transparencia */
 }
 
-.mb-3 {
-    margin-bottom: 1.5rem !important;
+.button:enabled {
+    background: #2691d9;
+    /* Color habilitado */
+    transition: all 0.3s ease;
+    /* Animación */
 }
 
-/* Animación para mensajes de error */
+.button:enabled:hover {
+    background: #2691d9;
+    /* Color hover */
+    transform: translateY(-2px);
+    /* Elevación hover */
+}
+
+/* 10. Link de Registro */
+.signup_link {
+    margin: 30px 0;
+    /* Espacio vertical */
+    text-align: center;
+    /* Texto centrado */
+    font-size: 16px;
+    /* Tamaño texto */
+    color: #666666;
+    /* Color texto */
+}
+
+.signup_link a {
+    color: #2691d9;
+    /* Color enlace */
+    text-decoration: none;
+    /* Sin subrayado */
+}
+
+.signup_link a:hover {
+    text-decoration: underline;
+    /* Subrayado al hover */
+}
+
+/* 11. Mensajes Error */
 .invalid-feedback {
     color: #e74c3c;
+    /* Color error */
     font-size: 0.875rem;
+    /* Tamaño texto */
     margin-top: 0.25rem;
+    /* Espacio superior */
     animation: fadeIn 0.3s ease;
+    /* Animación entrada */
 }
 
+/* 12. Animación Error */
 @keyframes fadeIn {
     from {
         opacity: 0;
+        /* Inicio transparente */
         transform: translateY(-10px);
+        /* Posición inicial */
     }
     to {
         opacity: 1;
+        /* Final visible */
         transform: translateY(0);
+        /* Posición final */
     }
 }
 
-/* Estilos para dispositivos móviles */
+/* 13. Responsive Tablet/Móvil */
 @media (max-width: 768px) {
-    .container {
-        padding: 0 15px;
+    .center {
+        width: 90%;
+        /* Ancho adaptativo */
+        margin: 20px auto;
+        /* Centrado */
     }
-    
-    .card {
-        margin: 0;
+
+    .center form {
+        padding: 0 20px;
+        /* Espacio reducido */
     }
-    
-    .card-body {
-        padding: 1.5rem;
+
+    .home-button {
+        top: 10px;
+        /* Ajuste posición */
+        left: 10px;
+        /* Ajuste posición */
+    }
+
+    .txt_field input {
+        font-size: 14px;
+        /* Texto más pequeño */
+    }
+
+    .password-help {
+        font-size: 11px;
+        /* Texto ayuda pequeño */
+    }
+
+    .signup_link {
+        font-size: 14px;
+        /* Texto link pequeño */
+    }
+}
+
+/* 14. Responsive Móvil Pequeño */
+@media (max-width: 320px) {
+    .center {
+        width: 95%;
+        /* Ancho máximo */
+    }
+
+    .button {
+        font-size: 16px;
+        /* Texto botón pequeño */
+    }
+
+    .btn-home {
+        font-size: 14px;
+        /* Texto botón home pequeño */
+        padding: 6px 12px;
+        /* Espacio reducido */
     }
 }

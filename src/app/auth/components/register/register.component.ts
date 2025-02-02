@@ -39,10 +39,10 @@ export class RegisterComponent {
     // 1 VALIDACION
     const userFormValues = Object.values(this.userForm)
 
-  if(userFormValues.includes('')) {
-    alert('Todos los campos son obligatorios')
-    return
-  }
+     if(userFormValues.includes('')) {
+     alert('Todos los campos son obligatorios')
+     return
+    }
 
     // 3 ENVIAR DATOS BACK userFormData
     this.userFormData.append('username', this.userForm.username)
