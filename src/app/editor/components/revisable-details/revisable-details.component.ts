@@ -1,8 +1,10 @@
+import { WriterService } from './../../../writer/services/writer.service';
 import { Component, inject } from '@angular/core';
 import { EditorService } from '../../services/editor.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-revisable-details',
@@ -14,9 +16,10 @@ import { CommonModule } from '@angular/common';
 export class RevisableDetailsComponent {
 
   private editorService: EditorService=inject(EditorService);
+  private writerService: WriterService=inject(WriterService);
     private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
     public article: any = {};
-    public guardado:boolean=false
+    public guardado:boolean=true
 
     draftForm!: FormGroup;
     
@@ -76,17 +79,19 @@ export class RevisableDetailsComponent {
         this.activatedRoute.params.subscribe( (params) => {
           const id:string=params["id"]
           const body = JSON.stringify(this.draftForm.value);
-          this.editorService.updateArticle(id,body).subscribe({
-              next: (data: any) => {
-                  this.guardado=true;
-                  console.log(body)
-                  alert("Guardado con éxito");
-              },
-              error: (error: any) => {
-                  console.log(error)
-              }
-          })
-        })
+          console.log("este es el id"+id);
+          this.writerService.modifyArticleContent(id, body).subscribe({
+                   next: (data: any) => {
+             alert("Borrador modificado con éxito")
+             
+           },
+           error: (error: any) => {
+             console.log(error);
+             alert("Se produjo un error")
+             }
+           })
+         })
+       
       }else{
         console.log(this.draftForm.value);
         alert("No se ha podido guardar el articulo");

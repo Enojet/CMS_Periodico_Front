@@ -27,26 +27,19 @@ export class RevisableListComponent {
    editorService:EditorService=inject(EditorService);
     draftList: any = [];
     dataSource:any=[];
-    displayedColumns: string[] = ['fecha', 'imagen','titulo', 'autor', 'estado', 'editar'];
+    displayedColumns: string[] = [ 'imagen','titulo', 'autor', 'estado', 'editar'];
     private editorId: any = localStorage.getItem("_id");
 
-
-
-    @ViewChild(MatSort) sort: MatSort = <MatSort>{};
-    @ViewChild(MatPaginator) paginator: MatPaginator = <MatPaginator>{};
     
     ngOnInit(){
 
       this.editorService.getAllArticles(this.editorId).subscribe((data:any)=>{
     this.draftList=data;
-    console.log("Fecha:"+this.draftList[0].date);
+   // console.log("Fecha:"+this.draftList[0].date);
     this.dataSource = new MatTableDataSource(this.draftList);
-    console.log(this.draftList)
+    console.log(Array.isArray(this.draftList))
       });
     
-     
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
     
   
 }
@@ -61,10 +54,10 @@ export class RevisableListComponent {
   }
 
 
-  formatDate(date:string) {
-    const fecha=date.split("T");
-    return fecha[0];
-  }
+  //formatDate(date:string) {
+  //  const fecha=date.split("T");
+   // return fecha[0];
+  //}
       
     
 }
