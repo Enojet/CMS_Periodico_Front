@@ -1,0 +1,34 @@
+<body>
+    <app-header></app-header>
+    <main>
+      <div class="category-container">
+        <p class="categoryTitle"><span class="symbol">➤</span>
+          {{sectionFromParams}}</p>
+
+      </div>
+
+      <section class="noticias-container">
+        <article class="noticiasgrid">
+          @for(article of publishedArticles; track $index) {
+            <div class="{{ 'noticia' }}" [routerLink]="['/home/articleView', article._id]">
+              <h2>{{article.title}}</h2>
+              <img src="{{article.image}}" alt="{{article.subtitle}}" />
+              <p>{{article.author}}</p>
+               
+            
+            </div>
+          }
+        </article>
+
+
+      </section>
+    
+      
+      
+    </main>
+   
+
+  
+</body>
+<app-footer></app-footer>
+

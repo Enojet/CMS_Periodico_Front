@@ -1,1 +1,55 @@
-<p>homepage works!</p>
+<body>
+  <app-header></app-header>
+  <h1>Artículos destacados</h1>
+
+  <main>
+    <div class="title-container">
+      <p class="title">NOTICIAS</p>
+    </div>
+    
+
+    <section class="noticias-container">
+      <div class="article-container">
+        <p class="highlightTitle">Noticias destacadas</p>
+
+        <article class="noticiasgridHighlight">
+          @for(article of highlighArticles; track $index) {
+          <div
+            class="{{ 'noticia' }}"
+            [routerLink]="['/home/articleView', article._id]"
+          >
+            <h2>{{ article.title }}</h2>
+            <img src="{{ article.image }}" alt="{{ article.subtitle }}" />
+            <p class="author">{{ article.author.completeName }}</p>
+            
+          </div>
+          }
+                    
+        </article>
+        
+      </div>
+      <div class="article-container">
+        <p class="highlightTitle">Otras noticias</p>
+        <article class="noticiasgridGeneric">
+          @for(article of genericArticles; track $index) {
+          <div
+            class="{{ 'noticia' }}"
+            [routerLink]="['/home/articleView', article._id]"
+          >
+            <h2>{{ article.title }}</h2>
+            <img src="{{ article.image }}" alt="{{ article.subtitle }}" />
+            <p class="author">{{ article.author.completeName }}</p>
+          </div>
+
+          }
+        </article>
+        
+      </div>
+      
+    </section>
+
+    <section class="noticias-container"></section>
+
+  </main>
+  <app-footer></app-footer>
+</body>

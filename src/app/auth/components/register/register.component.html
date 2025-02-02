@@ -1,1 +1,83 @@
-<p>register works!</p>
+<header>
+  <div class="home-button">
+    <a href="/home/homepage" class="btn-home">
+      <i class="fas fa-home"></i> Volver al Inicio
+    </a>
+  </div>
+</header>
+
+
+<div class="center">
+
+  <h1>Registro de Usuario</h1>
+  <form #registerForm="ngForm" (ngSubmit)="handleRegisterForm()">
+    <div class="txt_field">
+      <!--VALIDACIÓN del campo username
+        [(ngModel)]="userForm.username= vinculación con TS
+        required= hacer campo obligatorio
+        #username="ngModel"= Referencia para acceder al estado del campo,
+        para validación
+      -->
+      <input type="text" class="form-control" id="username" name="username" [(ngModel)]="userForm.username" required
+        #username="ngModel">
+      <span></span>
+      <label for="username">Nombre Usuario</label>
+
+      <!-- VALIDACIÓN del campo username:
+           - *ngIf= *modifica el dom y  ngIf funciona como if
+           - username.invalid: true si el campo está vacío (por el required)
+           - username.touched: true si el usuario interactuó con el campo
+           - && significa que AMBAS condiciones deben cumplirse
+           El mensaje solo aparece si el campo es inválido Y ha sido tocado -->
+      <div class="invalid-feedback" *ngIf="username.invalid && username.touched">
+        El nombre de usuario es obligatorio
+      </div>
+    </div>
+
+
+    <div class="txt_field">
+      <input type="text" class="form-control" id="completeName" name="completeName" [(ngModel)]="userForm.completeName"
+        required #completeName="ngModel">
+      <span></span>
+      <label for="completeName">Nombre Completo</label>
+      <!--1 Validación del campo completeName-->
+      <div class="invalid-feedback" *ngIf="completeName.invalid && completeName.touched">
+        El nombre completo es obligatorio
+      </div>
+    </div>
+
+
+    <div class="txt_field">
+      <select class="form-select" id="role" name="role" [(ngModel)]="userForm.role" required #role="ngModel">
+        <option value="">Selecciona un rol</option>
+        <option value="writer">Escritor</option>
+        <option value="editor">Editor</option>
+      </select>
+      <span></span>
+      <!-- 1 Validación del campo role -->
+      <div class="invalid-feedback" *ngIf="role.invalid && role.touched">
+        Debes seleccionar un rol
+      </div>
+    </div>
+
+
+    <div class="txt_field">
+      <input type="password" class="form-control" id="password" name="password" [(ngModel)]="userForm.password" required
+        #password="ngModel" minlength="6">
+      <span></span>
+      <label for="password">Contraseña</label>
+      <!-- Texto de ayuda-->
+      <small class="password-help">Mínimo 6 caracteres</small>
+      <!-- Validación del campo password -->
+      <div class="invalid-feedback" *ngIf="password.invalid && password.touched">
+        <span *ngIf="password.errors?.['required']">La contraseña es obligatoria</span>
+        <span *ngIf="password.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres</span>
+      </div>
+    </div>
+
+
+    <button type="submit" class="button" [disabled]="!registerForm.valid">
+      Registrarse
+    </button>
+  </form>
+</div>

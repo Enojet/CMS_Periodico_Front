@@ -1,1 +1,43 @@
-<p>revisable-details works!</p>
+<body>
+<div class="draft-container">
+    
+    @if (!article) {
+        <p>Cargando datos..</p>
+    }@else {
+
+
+    <form class="form-container" [formGroup]="draftForm" (ngSubmit)="handleCreateArticleForm()">
+   <p><strong>Imagen:</strong>
+    
+    @if (article.image==="null") {
+        <p>Sin imagen</p>
+    }@else {
+    <img src= {{article.image}}  />
+}
+
+<input type="file" formControlName="image" (change)="onFileSelected($event)" accept="image/*">
+    </p>
+    <p><strong>Titulo:</strong><input formControlName="title" /></p>
+    <p><strong>Subtitulo:</strong><input formControlName="subtitle" /></p>
+   <div class="content">
+    
+    <p><strong>Contenido:</strong><br><textarea formControlName="body" value={{article.body}}></textarea></p>
+    <p><strong>Noticia destacada:</strong>
+        <select formControlName="highlight">
+        <option value="true">Si</option>
+        <option value="false">No</option>
+    </select></p>
+  </div>
+
+  <div class="section-btn">
+
+   <button class="submit-btn" type="button" (click)='handleCreateArticleForm()'>Guardar </button>
+   <button class="btn-publish" type="button" (click)='changeStatus("publish")'>Publicar</button>
+   <button class="btn-draft" type="button" (click)='changeStatus("draft")'>Enviar a Borrador</button>
+
+</div>
+</form>
+    }
+ </div>
+
+</body>
