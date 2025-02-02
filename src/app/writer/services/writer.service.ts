@@ -7,41 +7,55 @@ import { inject, Injectable } from '@angular/core';
 export class WriterService {
 
   http: HttpClient = inject(HttpClient);
-  token: any=localStorage.getItem("token");
+  token: any = localStorage.getItem("token");
 
   getArticlesByAuthorId(id: string){
-
-    const headers=new HttpHeaders({
-          Authorization:`Bearer ${this.token}`
-        })
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.token}`
+    })
     return this.http.get(`http://localhost:3600/articles/getArticlesByAuthor/${id}`, {headers})
-  } // endpoint bueno
+  }
 
   getArticleById(id: string){ 
-    const headers=new HttpHeaders({
-      Authorization:`Bearer ${this.token}`
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.token}`
     })
     return this.http.get(`http://localhost:3600/articles/articleById/${id}`, {headers})
-    } // endpoint bueno
+    }
 
   createNewArticle(article: any){
-    return this.http.post("http://localhost:3600/articles/", article)
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.token}`
+    })
+    return this.http.post("http://localhost:3600/articles/create", article, {headers})
   }
 
-  modifyArticle(id: string, article: any){
-    return this.http.put(`http://localhost:3600/articles/${id}`, article)
+  modifyArticleContent(id: string, article: any){
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.token}`
+    })
+    return this.http.put(`http://localhost:3600/articles/content/${id}`, article, {headers})
   }
 
-  getAllUsers(){
-    return this.http.get("http://localhost:3600/users/allEditor")
+  getAllEditors(){
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.token}`
+    })
+    return this.http.get("http://localhost:3600/users/allEditor", {headers})
   }
 
   modifyArticleStatus(id: string, status: string){
-    return this.http.put(`http://localhost:3600/articles/${id}`, status)
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.token}`
+    })
+    return this.http.put(`http://localhost:3600/articles/status/${id}/${status}`, {}, {headers})
   }
   
-  assignArticleEditor(id: string, editorId: string){
-    return this.http.put(`http://localhost:3600/articles/${id}`, editorId)
+  assignArticleEditor(idArticle: string, editorId: string){
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.token}`
+    })
+    return this.http.put(`http://localhost:3600/articles/asignEditor/${idArticle}/${editorId}/`, {}, {headers})
   }
   
 }

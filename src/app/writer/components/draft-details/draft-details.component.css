@@ -1,109 +1,227 @@
-/* Reseteo de márgenes y paddings por defecto */
-* {
+span {
     margin: 0;
     padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
     box-sizing: border-box;
 }
 
-/* Estilo general para el body */
+/* Body */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    margin: 0;
+    padding: 0;
     line-height: 1.6;
-    margin: 20px;
+    background-color: #f5f5f5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* Contenedor principal del draft */
-.draft-container {
-    background-color: white;
+/* Header */
+header {
+    background-color: #000000;
+    padding: 5px 0;
+    text-align: center;
+    color: white;
+}
+
+.firstBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo-container img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.logo-container h4 {
+    font-size: 1.2em;
+    margin: 0;
+}
+
+/* Main */
+main {
+    flex: 1;
+    margin: 40px 5vw;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: 20px auto;
 }
 
-/* Título de la noticia */
-.title {
-    font-size: 2em;
-    color: #2c3e50;
-    margin-bottom: 10px;
+/* Título */
+h2.title {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 30px;
 }
 
 /* Subtítulo */
-.subtitle {
-    font-size: 1.2em;
-    color: #7f8c8d;
+h3.subtitle {
+    font-size: 1.5em;
+    color: #555;
     margin-bottom: 20px;
 }
 
-/* Contenedor del contenido (imagen, cuerpo de la noticia, etc.) */
-.content {
+/* Botones */
+.button-container {
+    display: flex;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.button-container button {
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 14px;
+    height: 40px;
+    padding: 0 20px;
+    background: linear-gradient(92.88deg, rgb(69, 94, 181) 9.16%, rgb(86, 67, 204) 43.89%, rgb(103, 63, 215) 64.72%);
+    transition: all 0.5s ease 0s;
     margin-bottom: 20px;
 }
 
-/* Imagen dentro del contenido */
-.content img {
+.button-container button:hover {
+    box-shadow: rgb(80 63 205 / 50%) 0px 1px 40px;
+    transition: all 0.1s ease 0s;
+}
+
+/* Contenedor del artículo */
+.draft-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 20px;
+}
+
+.draft-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
     width: 100%;
+    max-width: 800px; 
+    transition: transform 0.3s;
+    text-align: left;
+    margin: 0 auto; 
+}
+
+.draft-item h2.title {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.draft-item h3.subtitle {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.draft-item p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.paragraph-text {
+    white-space: pre-line;
+    font-size: 14px; 
+    padding: 15px; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    background-color: #f9f9f9; 
+    margin-top: 10px; 
+    max-width: 100%; 
+    overflow-wrap: break-word; 
+  }
+
+.draft-item img {
+    max-width: 100%;
     height: auto;
     border-radius: 8px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
-/* Estilo para la fecha */
-.content p:first-of-type {
-    font-size: 0.9em;
-    color: #95a5a6;
-    margin-bottom: 15px;
+.draft-item p strong {
+    font-weight: bold;
 }
 
-/* Estilo para el cuerpo del artículo */
-.content p:nth-of-type(2) {
-    font-size: 1.1em;
-    color: #34495e;
-    margin-bottom: 15px;
-}
-
-/* Estilo para la sección y autor */
-.content p:nth-of-type(3),
-.content p:nth-of-type(4) {
-    font-size: 0.9em;
-    color: #7f8c8d;
-}
-
-/* Estilo para los botones */
-button {
+.draft-item button {
+    display: inline-block;
     padding: 10px 20px;
-    margin: 10px 5px;
-    font-size: 1em;
+    background-color: #0073e6;
+    color: #fff;
     border: none;
     border-radius: 4px;
+    text-decoration: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
+    margin-top: 10px;
 }
 
-/* Botón de "Editar borrador" */
-.edit-btn {
-    background-color: #3498db;
+.draft-item button:hover {
+    background-color: #005bb5;
+}
+
+/* Footer */
+footer {
+    background-color: #0073e6;
     color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
 }
 
-.edit-btn:hover {
-    background-color: #2980b9;
-}
+/* Media Queries */
+@media (max-width: 768px) {
+    .draft-item {
+        max-width: 100%;
+    }
 
-/* Botón de "Enviar a revisión" */
-.review-btn {
-    background-color: #2ecc71;
-    color: white;
-}
+    h2.title {
+        font-size: 1.6em; 
+    }
 
-.review-btn:hover {
-    background-color: #27ae60;
-}
+    h3.subtitle {
+        font-size: 1.1em; 
+    }
 
-/* Estilo para botones en la misma línea */
-.draft-container button {
-    display: inline-block;
+    .draft-container {
+        margin: 20px; 
+    }
+
+    .draft-item {
+        padding: 10px;
+    }
+
+    .paragraph-text {
+        font-size: 12px;
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .button-container button {
+        width: 100%;
+        padding: 12px 0;
+    }
 }

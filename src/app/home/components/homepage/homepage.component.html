@@ -1,25 +1,28 @@
 <body>
   <app-header></app-header>
+  <h1>Artículos destacados</h1>
 
   <main>
     <div class="title-container">
       <p class="title">NOTICIAS</p>
       <app-search></app-search>
     </div>
+    
 
     <section class="noticias-container">
       <div class="article-container">
         <p class="highlightTitle">Noticias destacadas</p>
 
         <article class="noticiasgridHighlight">
-          @for(article of highlightArticles; track $index) {
+          @for(article of highlighArticles; track $index) {
           <div
             class="{{ 'noticia' }}"
-            [routerLink]="['/home/articleView', article.id]"
+            [routerLink]="['/home/articleView', article._id]"
           >
             <h2>{{ article.title }}</h2>
             <img src="{{ article.image }}" alt="{{ article.subtitle }}" />
-            <p class="author">{{ article.author }}</p>
+            <p class="author">{{ article.author.completeName }}</p>
+            
           </div>
           }
           
@@ -33,11 +36,11 @@
           @for(article of genericArticles; track $index) {
           <div
             class="{{ 'noticia' }}"
-            [routerLink]="['/home/articleView', article.id]"
+            [routerLink]="['/home/articleView', article._id]"
           >
             <h2>{{ article.title }}</h2>
             <img src="{{ article.image }}" alt="{{ article.subtitle }}" />
-            <p class="author">{{ article.author }}</p>
+            <p class="author">{{ article.author.completeName }}</p>
           </div>
 
           }
