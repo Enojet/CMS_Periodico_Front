@@ -54,7 +54,6 @@ export class AsignEditorComponent {
         alert("Se produjo un error")
       }
     );
-
     
   }
 
