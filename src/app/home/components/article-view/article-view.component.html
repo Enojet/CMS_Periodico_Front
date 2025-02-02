@@ -12,7 +12,7 @@
           <span class="symbol">➤</span>
           {{article.subtitle}}
         </h2>
-        <p class="date">{{article.date}}</p>
+        <p class="date">{{article.date | date:'d/M/y'}}</p>
         <p class="author">{{article.author.completeName}}</p>
 
         <img class="mainImg" src="{{article.image}}" alt="">

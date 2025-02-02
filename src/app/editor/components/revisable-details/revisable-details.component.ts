@@ -1,7 +1,7 @@
 import { WriterService } from './../../../writer/services/writer.service';
 import { Component, inject } from '@angular/core';
 import { EditorService } from '../../services/editor.service';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -18,6 +18,7 @@ export class RevisableDetailsComponent {
   private editorService: EditorService=inject(EditorService);
   private writerService: WriterService=inject(WriterService);
     private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
+    private router: Router = inject(Router);
     public article: any = {};
     public guardado:boolean=true
 
@@ -53,17 +54,7 @@ export class RevisableDetailsComponent {
     }
     
 
-   /* initializeForm() { // Función para crear el formulario
-      this.draftForm = new FormGroup({
-        title: new FormControl(this.article.title, Validators.required),
-        subtitle: new FormControl(this.article.subtitle, Validators.required),
-        image: new FormControl(this.article.image, Validators.required),
-        body: new FormControl(this.article.body, Validators.required),
-        highlight: new FormControl(this.article.highlight, Validators.required)
-      });
-    }*/
-
-
+   
   
 
     onFileSelected(event: Event): void {
@@ -78,12 +69,11 @@ export class RevisableDetailsComponent {
       if(this.draftForm.valid) {
         this.activatedRoute.params.subscribe( (params) => {
           const id:string=params["id"]
-          const body = JSON.stringify(this.draftForm.value);
           console.log("este es el id"+id);
-          this.writerService.modifyArticleContent(id, body).subscribe({
+          this.writerService.modifyArticleContent(id,this.draftForm.value).subscribe({
                    next: (data: any) => {
              alert("Borrador modificado con éxito")
-             
+             this.router.navigate(['/editor'])
            },
            error: (error: any) => {
              console.log(error);

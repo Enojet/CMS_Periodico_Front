@@ -25,8 +25,7 @@ export class CategoryComponent implements OnInit {
       this.articleService.publishedArticles().subscribe((data: any) => {
         this.publishedArticles = data.filter(
             (article: any) =>
-            article.status === 'published' &&
-            article.section === sectionFromParams
+             article.section === sectionFromParams
         );
       });
     });

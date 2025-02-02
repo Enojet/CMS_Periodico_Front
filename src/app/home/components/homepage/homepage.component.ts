@@ -40,7 +40,7 @@ export class HomepageComponent implements OnInit{
     })
   }
 
-loadMoreHighlight(){
+/*loadMoreHighlight(){
   const currentLength = this.highlighArticles.length;
   const nextLimit = currentLength + 2;
 
@@ -62,6 +62,6 @@ loadMoreGeneric() {
 
   this.genericArticles = allGenericArticles.slice(0, nextLimit);
 }
-  
+  */
 
 }
